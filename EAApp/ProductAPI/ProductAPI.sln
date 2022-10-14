@@ -5,7 +5,12 @@ VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductAPI", "ProductAPI.csproj", "{FF414B2D-E63B-4AFC-8698-FF8AA7E1C5CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAWebApp", "..\EAWebApp\EAWebApp.csproj", "{F72EA844-65B2-4D64-93BF-802FA35EBC36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAWebApp", "..\EAWebApp\EAWebApp.csproj", "{F72EA844-65B2-4D64-93BF-802FA35EBC36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC6D7589-4C3A-417B-9112-C95ABE6D50F4}"
+	ProjectSection(SolutionItems) = preProject
+		..\docker-compose.yml = ..\docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
