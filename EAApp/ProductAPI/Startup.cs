@@ -46,7 +46,7 @@ namespace ProductAPI
             services
                 .AddDbContext<ProductDbContext>(option =>
                     option
-                        .UseSqlite(Configuration
+                        .UseSqlServer(Configuration
                             .GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IProductRepository, ProductRepository>();

@@ -1,29 +1,47 @@
 ﻿using AutoFixture.Xunit2;
 using EATestProject.Models;
 using EATestProject.Pages;
+using FluentAssertions;
 
 namespace EATestProject
 {
     public class UnitTest1
     {
         private readonly IHomePage _homePage;
-        private readonly ICreateProductPage _createProductPage;
+        private readonly IProductPage _productPage;
 
-        public UnitTest1(IHomePage homePage, ICreateProductPage createProductPage)
+        public UnitTest1(IHomePage homePage, IProductPage createProductPage)
         {
             _homePage = homePage;
-            _createProductPage = createProductPage;
+            _productPage = createProductPage;
         }
 
         [Theory, AutoData]
-        public void Test(Product product)
+        public void Test1(Product product)
         {
             _homePage.GoToCreateProductPage();
 
-            _createProductPage.EnterProductDetails(product);
-            _createProductPage.CreateProduct();
+            _productPage.EnterProductDetails(product);
+            _productPage.CreateProduct();
 
-            _homePage.PerformClickOnOperation("Monitor", "Details");
+            _homePage.PerformClickOnOperation(product.Name, "Details");
+        }
+
+        [Theory, AutoData]
+        public void Test2(Product product)
+        {
+            _homePage.GoToCreateProductPage();
+
+            _productPage.EnterProductDetails(product);
+            _productPage.CreateProduct();
+
+            _homePage.PerformClickOnOperation(product.Name, "Details");
+
+            var actualProduct = _productPage.GetProductDetails();
+
+            actualProduct
+                .Should()
+                .BeEquivalentTo(product, option => option.Excluding(q => q.Id));
         }
     }
 }

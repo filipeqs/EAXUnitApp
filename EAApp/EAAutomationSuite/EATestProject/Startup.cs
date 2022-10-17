@@ -14,7 +14,7 @@ namespace EATestProject
             services.AddScoped<IDriverFixture, DriverFixture>();
 
             services.AddScoped<IHomePage, HomePage>();
-            services.AddScoped<ICreateProductPage, CreateProductPage>();
+            services.AddScoped<IProductPage, ProductPage>();
         }
     }
 }
